@@ -1,15 +1,109 @@
 <!DOCTYPE html>
+<!-- Add OXYGEN font as the font used in this project-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Flexbox Capstone</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        .navbar {
+            background: #415068;
+        }
+        
+        .navbar div {
+            display: none;
+        }
+        .navbar .toggle, navbar.brand {
+            display: inline-block;
+        }
+        .navbar .link {
+            display: block;
+            text-align: center;
+            padding: 1em;
+            text-decoration: none;
+            background: #223047;
+            color: white;
+        }
+        .navbar .link:hover, .navbar .link:active {
+            color: #223047;
+            background: white;
+        }
+        .navbar .brand {
+            width: 10em;
+            text-align: center;
+            padding: 1em;
+            color: white;
+        }
+        .navbar a {
+            text-decoration: none;
+        }
+        .navbar .toggle {
+            padding: 1em;
+            color: black;
+        }
+        @media (min-width: 48em) {
+            .navbar {
+                display :flex;
+            }
+            .navbar div {
+                display: flex;
+            }
+            .navbar .left, .navbar .right {
+                display: flex;
+                flex: 1;
+            }
+
+            .navbar .link {
+                width: auto;
+            }
+            .navbar .right {
+                justify-content: flex-end;
+            }
+            .navbar .toggle {
+                display: none;
+            }
+        }
+
+        @media (max-width: 48em) {
+            .navbar.active .toggle {
+                background: #223047;
+                color: white;
+            }
+            .navbar .brand {
+                text-align: left;
+            }
+            .navbar.active div {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Capstone</h1>
-    <h2>Hardware</h2>
-    <p>(click): Trash any number of cards from your grip. For each trashed card of which you have another copy installed, draw 1 card.</p>
-    <p><em>"Once you have achieved perfection, what's next? -The Professor</em></p>
+    <div class="navbar">
+        <a href="#" class="toggle" id="navHamburger">
+            <i class="fas fa-bars"></i>
+        </a>
+        <a href="#" class="brand">Tanner</a>
+        <div class="left">
+            <a href="#" class="link">Link 1</a>
+            <a href="#" class="link">Link 2</a>
+        </div>
+        <div class="right">
+                <a href="#" class="link">Link 3</a>
+        </div>
+    </div>
 </body>
+
+<script>
+    const navHamburger = document.querySelector("#navHamburger");
+    navHamburger.addEventListener("click", (e) => {
+        navHamburger.parentElement.classList.toggle("active");
+    })
+</script>
 </html>
